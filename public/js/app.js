@@ -1,19 +1,13 @@
 class TeamList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      teams: [],
-    };
-
-    this.handleTeamUpVote = this.handleTeamUpVote.bind(this);
-  }
+  state = {
+    teams: [],
+  };
 
   componentDidMount() {
     this.setState({ teams: Seed.teams });
   }
 
-  handleTeamUpVote(teamId) {
+  handleTeamUpVote = (teamId) => {
     const nextTeams = this.state.teams.map((team) => {
       if (team.id === teamId) {
         return Object.assign({}, team, {
@@ -53,13 +47,7 @@ class TeamList extends React.Component {
 }
 
 class Team extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleUpVote = this.handleUpVote.bind(this);
-  }
-
-  handleUpVote() {
+  handleUpVote = () => {
     this.props.onVote(this.props.id);
   }
 
