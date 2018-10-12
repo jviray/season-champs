@@ -13,7 +13,6 @@ class TeamList extends React.Component {
     this.setState({ teams: Seed.teams });
   }
 
-  // Inside `ProductList`
   handleTeamUpVote(teamId) {
     const nextTeams = this.state.teams.map((team) => {
       if (team.id === teamId) {
@@ -33,7 +32,7 @@ class TeamList extends React.Component {
     const teams = this.state.teams.sort((a, b) => (
       b.votes - a.votes
     ));
-    const teamComponents = Seed.teams.map((team) => (
+    const teamComponents = teams.map((team) => (
       <Team
         key={'team-' + team.id}
         id={team.id}
